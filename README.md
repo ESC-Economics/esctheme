@@ -16,7 +16,7 @@ You can install the development version of esctheme from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("mayala-esc/esctheme")
+devtools::install_github("ESC-Economics/esctheme")
 ```
 
 ## Example
