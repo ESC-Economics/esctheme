@@ -5,7 +5,7 @@
 esc_palette <- function(){
   
   esc_colours <- c("#236192","#ed8b00", "#ce0058", "#183028","#d50032", "#fdda24",
-                   "#808080", "#a3d168", "#3c7964")
+                   "#75787b", "#4986a0", "#a3d168", "#3c7964")
   
   return(esc_colours)
   
