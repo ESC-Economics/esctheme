@@ -19,3 +19,4 @@ Suggests:
     ggthemes,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+URL: https://esc-economics.github.io/esctheme/
