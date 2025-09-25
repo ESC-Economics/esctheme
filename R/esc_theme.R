@@ -23,13 +23,17 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
   if (rm_x_leg == TRUE) {
     x_leg <- element_blank()
   }else{x_leg <- element_text(
-    margin=unit(c(0,0,0,.15)*scale, "cm", colorlist$txt_grey), size = 20*scale
+    margin=unit(c(0.22,0,0,.15)*scale, "cm"),
+    colour = colorlist$txt_grey,
+    size = 20*scale
     )}
   
   if (rm_y_leg == TRUE) {
     y_leg <- element_blank()
   }else{y_leg <- element_text(
-    margin=unit(c(0,0,0,.15)*scale, "cm", colorlist$txt_grey), size = 20*scale
+    margin=unit(c(0,0,0,.15)*scale, "cm"),
+    colour = colorlist$txt_grey,
+    size = 20*scale
     )}
   
   
@@ -124,7 +128,8 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
     panel.spacing = unit(1, "lines"),
     strip.text = element_text(size = 14*scale,
                               margin=unit(c(0.15,0,0.5,0)*scale,"cm"),
-                              colour = colorlist$txt_grey)
+                              colour = colorlist$txt_grey,
+                              face = "bold")
     )
 }
 
