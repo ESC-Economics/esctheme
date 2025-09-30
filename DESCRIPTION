@@ -1,6 +1,6 @@
 Package: esctheme
 Title: Create ggplot2 charts in the Essential Services Commission of Victoria style
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Miguel", "Ayala", , "miguel.ayala@esc.vic.gov.au", role = c("aut", "cre")
     )
@@ -8,9 +8,10 @@ Description: Enables the user to create ggplot2 charts that conform to the Essen
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Imports: 
     ggplot2 (>= 3.5.0),
+    data.table (>= 1.14.8),
     utils,
     grDevices,
     magrittr,

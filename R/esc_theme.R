@@ -23,7 +23,7 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
   if (rm_x_leg == TRUE) {
     x_leg <- element_blank()
   }else{x_leg <- element_text(
-    margin=unit(c(0.22,0,0,.15)*scale, "cm"),
+    margin = margin(t=0.22*scale, r=0, b=0, l=0.15*scale, unit = "cm"),#unit(c(0.22,0,0,.15)*scale, "cm"),
     colour = colorlist$txt_grey,
     size = 20*scale
     )}
@@ -31,7 +31,7 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
   if (rm_y_leg == TRUE) {
     y_leg <- element_blank()
   }else{y_leg <- element_text(
-    margin=unit(c(0,0,0,.15)*scale, "cm"),
+    margin = margin(t=0, r=0.5, b=0, l=0.05*scale, unit = "cm"),#unit(c(0,0,0,.15)*scale, "cm"),
     colour = colorlist$txt_grey,
     size = 20*scale
     )}
@@ -60,7 +60,7 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
       angle=0,
       vjust=1.08,
       hjust=0,
-      margin=unit(c(0,0,0,-1.5)*scale, "cm", colorlist$lt_black), 
+      margin = margin(t=0, r=0, b=0, l=-1.5*scale, unit = "cm"), 
       size=18*scale),
     
     axis.title.x = x_leg,
@@ -69,9 +69,15 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
     axis.ticks.length = unit(-0.15*scale, "cm"),
     
     axis.text = element_text(angle = 0, colour = colorlist$dk_grey,size=16*scale),
-    axis.text.x = element_text(margin=unit(c(0.35,0.35,0,0.5)*scale, "cm")),
-    axis.text.y = element_text(margin=unit(c(0.5,0.35,0.5,0.5)*scale, "cm")),
-    axis.text.y.right= element_text(margin=unit(c(0.5,0.5,0.5,0.35)*scale, "cm")),
+    
+    axis.text.x = element_text(
+      margin = margin(t=0.35*scale, r=0.35*scale, b=0, l=0.5*scale, unit = "cm")),
+    
+    axis.text.y = element_text(
+      margin=margin(t=0.5*scale, r=0.35*scale, b=0.5*scale, l=0.5*scale, unit = "cm")),
+    
+    axis.text.y.right = element_text(
+      margin=margin(t=0.5*scale, r=0.5*scale, b=0.5*scale, l=0.35*scale, unit = "cm")),
     
     
     axis.line.x = element_line(linewidth=1*scale, colour= colorlist$dk_grey),
@@ -86,7 +92,7 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
     legend.spacing.y = unit(0,'cm'),
     
     plot.title = element_text(
-      margin=unit(c(0.2,0,0.15,0)*scale,"cm"),
+      margin= margin(t=0.2*scale, r=0, b=0.15*scale, l=0, unit = "cm"),
       size=24*scale, 
       hjust=0.0, 
       face = 'bold', 
@@ -96,14 +102,14 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
     plot.caption.position = "plot",
     plot.subtitle = element_text(
       hjust=0.0,
-      margin=unit(c(0.15,0,0.5,0)*scale,"cm"),
+      margin=margin(t=0.15*scale, r=0, b=0.5*scale, l=0, unit = "cm"),
       size=18*scale,
       colour = "#000000"
       ),
     plot.caption = element_text(
       hjust=0.0,
       size=14*scale,
-      margin=unit(c(0.45,0,0.15,0)*scale,"cm"),
+      margin=margin(t=0.35*scale, r=0, b=0.15*scale, l=0, unit = "cm"),
       colour = colorlist$dk_grey
       ),
     
@@ -113,6 +119,7 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
     legend.direction = "horizontal",
     legend.box = "horizontal",
     
+    # panel
     panel.background = element_rect(
       fill = NA, 
       color = NA 
@@ -127,7 +134,7 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
     strip.placement = "inside",
     panel.spacing = unit(1, "lines"),
     strip.text = element_text(size = 14*scale,
-                              margin=unit(c(0.15,0,0.5,0)*scale,"cm"),
+                              margin=margin(t=0.15*scale, r=0, b=0.5*scale, l=0, unit = "cm"),#unit(c(0.15,0,0.5,0)*scale,"cm"),
                               colour = colorlist$txt_grey,
                               face = "bold")
     )

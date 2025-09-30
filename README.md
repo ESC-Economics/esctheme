@@ -4,6 +4,7 @@
 # esctheme
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The goal of esctheme is to create ggplot2 charts in the Essential
@@ -43,7 +44,7 @@ data <- data.frame(specie,condition,value)
 
 
 data <- data %>% 
-  arrange(specie, rev(value)) %>% 
+  dplyr::arrange(specie, rev(value)) %>% 
   dplyr::group_by(specie) %>% 
   dplyr::mutate(label_y = cumsum(value)-0.5*value)
 
