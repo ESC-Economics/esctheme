@@ -2,7 +2,7 @@
 % Please edit documentation in R/r_setup.R
 \name{r_setup}
 \alias{r_setup}
-\title{A general setup function that clears the console and workspace and loads in the packages you need to create ESC style charts}
+\title{Loads core packages for workflow}
 \usage{
 r_setup()
 }

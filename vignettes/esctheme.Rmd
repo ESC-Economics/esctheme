@@ -1,8 +1,9 @@
 ---
 title: "Introduction to esctheme"
 output: rmarkdown::html_vignette
+description: Some example code showing how to use `theme61` with `ggplot2` graphs.
 vignette: >
-  %\VignetteIndexEntry{esctheme}
+  %\VignetteIndexEntry{Introduction to esctheme}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

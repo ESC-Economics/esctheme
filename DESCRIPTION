@@ -15,7 +15,9 @@ Imports:
     utils,
     grDevices,
     magrittr,
-    extrafont
+    extrafont,
+    stats,
+    caTools
 Suggests: 
     dplyr,
     ggthemes,

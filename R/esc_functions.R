@@ -26,3 +26,65 @@ esc_save <- function(n, path = NULL, device = "png", width = 14.5, height = 6,
 }
 
 
+#' Calculate distribution statistics
+#' function to calculate median, min, max and lower and upper values
+#' 
+#' @param df A data frame
+#' @param var Numeric column to compute distribution.
+#' @param lower Numeric value for the bottom percentile.
+#' @param upper Numeric value for the top percentile.
+#' @param by_vars A selection of columns to group by for just this operation
+#' 
+summarise_by <- function(df, var, lower=.10, upper = .90, by_vars){
+  
+  plower_name <- paste0("p",lower*100, recycle0 = TRUE)
+  pupper_name <- paste0("p",upper*100, recycle0 = TRUE)
+  
+  df <- df %>% 
+    dplyr::group_by(dplyr::pick({{ by_vars }})) %>% 
+    dplyr::summarise(
+      p_min = round(min({{ var }}, na.rm = TRUE),0),
+      p_lower = round(stats::quantile({{ var }}, lower, na.rm = TRUE),0),
+      p_median = round(stats::median({{ var }}, na.rm = TRUE),0),
+      p_upper = round(stats::quantile({{ var }}, upper, na.rm = TRUE),0),
+      p_max = round(max({{ var }}, na.rm = TRUE),0)
+    ) %>% 
+    dplyr::ungroup() %>% 
+    dplyr::rename(
+      !!plower_name := p_lower,
+      !!pupper_name := p_upper
+    )
+  
+  return(df)
+  
+}
+
+
+#' Moving average for long data
+#' @description
+#' A function to calculate moving average to smooth time series
+#' 
+#' @param df A data frame
+#' @param p Numeric value for window period. Default to 4 for quarter. 
+#' Other options are weekly 7 and monthly 12
+#' @param ivars Coumns to calculate moving average. It keeps the column names
+#' @param by_vars A selection of columns to group by for just this operation
+#' 
+#'
+trail_avg <- function(df,p=4,ivars, by_vars){
+  
+  df <- df %>% 
+    dplyr::group_by(pick({{ by_vars }})) %>% 
+    dplyr::mutate(
+      dplyr::across(
+        .cols = {{ ivars }},
+        .fns = ~ caTools::runmean(.x, p, endrule = "NA", align = "right")
+      )
+    ) %>%
+    dplyr::ungroup()
+  
+  return(df)
+  
+}
+
+
