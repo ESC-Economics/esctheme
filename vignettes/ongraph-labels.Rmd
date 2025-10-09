@@ -13,7 +13,7 @@ vignette: >
 library(ggplot2)
 library(data.table)
 library(dplyr)
-devtools::load_all()
+library(esctheme)
 
 set.seed(42)
 

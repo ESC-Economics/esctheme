@@ -12,7 +12,7 @@ vignette: >
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
 library(ggplot2)
 library(data.table)
-devtools::load_all()
+library(esctheme)
 
 knitr::opts_chunk$set(
   echo = TRUE,

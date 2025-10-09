@@ -2,8 +2,7 @@
 % Please edit documentation in R/esc_functions.R
 \name{summarise_by}
 \alias{summarise_by}
-\title{Calculate distribution statistics
-function to calculate median, min, max and lower and upper values}
+\title{Calculate summary statistics}
 \usage{
 summarise_by(df, var, lower = 0.1, upper = 0.9, by_vars)
 }
@@ -19,6 +18,5 @@ summarise_by(df, var, lower = 0.1, upper = 0.9, by_vars)
 \item{by_vars}{A selection of columns to group by for just this operation}
 }
 \description{
-Calculate distribution statistics
-function to calculate median, min, max and lower and upper values
+A function to calculate median, min, max, and lower and upper percentiles
 }

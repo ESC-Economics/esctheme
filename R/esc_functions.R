@@ -26,8 +26,9 @@ esc_save <- function(n, path = NULL, device = "png", width = 14.5, height = 6,
 }
 
 
-#' Calculate distribution statistics
-#' function to calculate median, min, max and lower and upper values
+#' Calculate summary statistics
+#' @description 
+#' A function to calculate median, min, max, and lower and upper percentiles
 #' 
 #' @param df A data frame
 #' @param var Numeric column to compute distribution.
@@ -74,7 +75,7 @@ summarise_by <- function(df, var, lower=.10, upper = .90, by_vars){
 trail_avg <- function(df,p=4,ivars, by_vars){
   
   df <- df %>% 
-    dplyr::group_by(pick({{ by_vars }})) %>% 
+    dplyr::group_by(dplyr::pick({{ by_vars }})) %>% 
     dplyr::mutate(
       dplyr::across(
         .cols = {{ ivars }},
