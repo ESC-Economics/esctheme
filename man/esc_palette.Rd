@@ -4,7 +4,14 @@
 \alias{esc_palette}
 \title{Predefined ESC colours combined into palettes}
 \usage{
-esc_palette()
+esc_palette(n = 6, reverse = FALSE)
+}
+\arguments{
+\item{n}{Numeric. The number of levels in your colour scale, defaults to 6. Minimum value is
+1, maximum is 12. Using more than 6 colours is not recommended as it may
+make it difficult to distinguish between colours.}
+
+\item{reverse}{Logical. Reverse the standard colour order, defaults to FALSE}
 }
 \description{
 Predefined ESC colours combined into palettes

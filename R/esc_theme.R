@@ -141,3 +141,33 @@ esc_theme <- function(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE){
 }
 
 
+#' Applies changes to the theme for horizontal bar graphs
+#'
+#' Horizontal bar graphs made with `coord_flip()` require some changes to
+#' the `theme()` in order to look proper. This function wraps those changes
+#' up in a convenient function that should be appended at the end of the graph
+#' code, after theming functions such as `esctheme()` have been called.
+#'
+#' @param x_adj Numeric. Adjusts the vertical position of the x-axis title,
+#' the default works for most graphs. A negative value moves the
+#' title up, a positive value moves the title down.
+#'
+#' @return ggplot object
+#' @export
+
+format_flip <- function(x_adj = 0) {
+  
+  retval <-
+    theme(
+      panel.grid.major.x = element_line(colour = "#D9D9D9"),
+      panel.grid.major.y = element_blank(),
+      axis.text.x.top = element_blank(),
+      axis.ticks.x.top = element_blank(),
+      axis.title.x.top = element_blank(),
+      plot.title.position = "plot",
+      plot.caption.position = "plot"
+    )
+  
+  return(retval)
+  
+}

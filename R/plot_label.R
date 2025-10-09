@@ -67,8 +67,9 @@ plot_label <-
     
     # Automatically convert dates to dates if specified, so the user doesn't have
     # to wrap dates in as.Date() which saves some room.
-    if (!inherits(x, "POSIXct") && !inherits(try(as.Date(as.character(x)), silent = TRUE)) != "try-error") {
-      x <- as.Date(x)
+    try_date <- try(as.Date(as.character(x)), silent = TRUE)
+    if (!inherits(try_date, "try-error")) {
+      x <- try_date
     }
     
     # Arg length checking helper

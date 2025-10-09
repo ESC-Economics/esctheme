@@ -1,9 +1,9 @@
 Package: esctheme
 Title: Create ggplot2 charts in the Essential Services Commission of Victoria style
-Version: 0.0.1
-Authors@R: 
-    person("Miguel", "Ayala", , "miguel.ayala@esc.vic.gov.au", role = c("aut", "cre")
-    )
+Version: 0.0.2
+Authors@R: c(
+    person("Economics and Insights", "ESC", email = "economics@esc.vic.gov.au", role = c("aut", "cre")),
+    person("Miguel", "Ayala", email = "miguel.ayala@esc.vic.gov.au", role = c("aut")))
 Description: Enables the user to create ggplot2 charts that conform to the Essential Services Commission of Victoria style guide.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -17,7 +17,11 @@ Imports:
     magrittr,
     extrafont
 Suggests: 
+    dplyr,
     ggthemes,
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: https://esc-economics.github.io/esctheme/
+VignetteBuilder: knitr
