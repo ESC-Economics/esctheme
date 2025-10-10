@@ -59,10 +59,10 @@ pt_rg_data <- data.table(x = -2:1,
 
 
 # Builds the colour palette diagram
-inputs <- data.table::CJ(row = seq(1, 6), col = seq(0, 8))
-inputs[, row := factor(row, labels = c("Blue", "Aqua", "Deepgreen", "Yellow", "Orange", "Red"))]
+inputs <- data.table::CJ(row = seq(1, 7), col = seq(0, 8))
+inputs[, row := factor(row, labels = c("Blue", "Aqua", "Magenta", "Deepgreen", "Yellow", "Orange", "Red"))]
 
-col_pal <- rbind(esc_blue, esc_aqua, esc_deepgreen, esc_yellow, esc_orange, esc_red)
+col_pal <- rbind(esc_blue, esc_aqua, esc_magenta, esc_deepgreen, esc_yellow, esc_orange, esc_red)
 
 inputs[, fill_col := as.vector(t(col_pal))]
 
@@ -103,7 +103,7 @@ Start by creating a graph using the 'normal' stuff: `ggplot(data, aes(x, y)) + g
 
 This is the Essential Services Commission colour palette. 
 
-All the colours are package objects that can be selected by using the appropriate name. For example, `e61_tealdark3` selects the colour 'Teal dark' with the shade in column '3'.
+All the colours are package objects that can be selected by using the appropriate name. For example, `esc_magenta` selects the colour 'Magenta' with nine shades starting from the base shade in column '0'.
 
 ```{r theme61-colours, echo = FALSE}
 p
