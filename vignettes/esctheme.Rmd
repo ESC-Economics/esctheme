@@ -95,7 +95,7 @@ Save your graph using `esc_save()`. Do **not** use the Export button in the Plot
 Start by creating a graph using the 'normal' stuff: `ggplot(data, aes(x, y)) + geom_blah()`. Then:
 
 - Add plot labelling: `plot_label()`
-- Use `theme_e61()` at the end of your plot code. 
+- Use `esc_theme()` at the end of your plot code. 
 - Save the graph: `esc_save()`.
 
 
@@ -105,7 +105,7 @@ This is the Essential Services Commission colour palette.
 
 All the colours are package objects that can be selected by using the appropriate name. For example, `esc_magenta` selects the colour 'Magenta' with nine shades starting from the base shade in column '0'.
 
-```{r theme61-colours, echo = FALSE}
+```{r theme61-colours, echo = FALSE, out.width='100%'}
 p
 ```
 
@@ -134,7 +134,7 @@ g <- ggplot(data_3, aes(x = year, y = value, colour = category)) +
 
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width='100%'}
 g#knitr::include_graphics("../man/figures/g-line.svg")
 ```
 
@@ -160,7 +160,7 @@ g <- ggplot(data_3, aes(x = year, y = value, fill = category)) +
 
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width='100%'}
 g#knitr::include_graphics("../man/figures/g-col.svg")
 ```
 
@@ -197,7 +197,7 @@ g <- ggplot(mtcars2, aes(x = wt, y = mpg, colour = gear)) +
 
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width='100%'}
 g#knitr::include_graphics("../man/figures/g-scatter.svg")
 ```
 
@@ -244,7 +244,7 @@ g <- ggplot(mpg, aes(x = cty, fill = factor(cyl))) +
 
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width='100%'}
 g#knitr::include_graphics("../man/figures/g-dens.svg")
 ```
 
@@ -277,7 +277,7 @@ g <- ggplot(data_col, aes(x = category, y = value, fill = factor(year))) +
 
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width='100%'}
 g
 ```
 
