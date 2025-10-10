@@ -36,6 +36,8 @@ esc_save <- function(n, path = NULL, device = "png", width = 14.5, height = 6,
 #' @param upper Numeric value for the top percentile.
 #' @param by_vars A selection of columns to group by for just this operation
 #' 
+#' @export
+
 summarise_by <- function(df, var, lower=.10, upper = .90, by_vars){
   
   plower_name <- paste0("p",lower*100, recycle0 = TRUE)
@@ -72,6 +74,8 @@ summarise_by <- function(df, var, lower=.10, upper = .90, by_vars){
 #' @param by_vars A selection of columns to group by for just this operation
 #' 
 #'
+#' @export
+
 trail_avg <- function(df,p=4,ivars, by_vars){
   
   df <- df %>% 
