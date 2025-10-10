@@ -256,6 +256,7 @@ There are a few reasons to work with horizontal bars, some are:
 - Multiple categories
 - Data ordering
 
+Horizontal bar graphs made with `coord_flip()` require some changes to the `theme()` in order to look proper. `format_flip` wraps those changes up in a convenient function that should be appended at the end of the graph code, after theming functions such as `esc_theme()` have been called.
 
 ```{r}
 g <- ggplot(data_col, aes(x = category, y = value, fill = factor(year))) +
@@ -276,7 +277,9 @@ g <- ggplot(data_col, aes(x = category, y = value, fill = factor(year))) +
 
 ```
 
-
+```{r, echo=FALSE}
+g
+```
 
 
 

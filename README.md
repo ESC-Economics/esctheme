@@ -7,56 +7,33 @@
 
 <!-- badges: end -->
 
-The goal of esctheme is to create ggplot2 charts in the Essential
+The `esctheme` package helps you create ggplot2 charts in the Essential
 Services Commission of Victoria style.
 
-## Installation
+### Installation
 
-You can install the development version of esctheme from
-[GitHub](https://github.com/) with:
+If you haven’t already, install the `remotes` package:
+
+`install.packages("remotes")`
+
+Then install from GitHub:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ESC-Economics/esctheme")
+remotes::install_github("ESC-Economics/esctheme", dependencies = TRUE, upgrade = "always")
 ```
 
-## Example
+Then load into R:
 
-This is a basic example which shows you how to use the theme:
+`library(esctheme)`
 
-``` r
-library(esctheme)
-r_setup()
-```
+### Using esctheme
 
-
+The [package website](https://esc-economics.github.io/esctheme/)
+contains a lot of information on how to use esctheme.
 
-``` r
+Start by reading the [Get started](articles/esctheme.html) article.
 
-## basic example code
-
-# create a dataset
-esc_colours <- esc_palette()
-specie <- c(rep("sorgho" , 4) , rep("poacee" , 4) , rep("banana" , 4) , rep("triticum" , 4))
-condition <- rep(c("Normal" , "Stress" , "Nitrogen", "Other") , 4)
-value <- rnorm(16 , -5 , 15)
-data <- data.frame(specie,condition,value)
-
-
-data <- data %>% 
-  dplyr::arrange(specie, rev(value)) %>% 
-  dplyr::group_by(specie) %>% 
-  dplyr::mutate(label_y = cumsum(value)-0.5*value)
-
-# Plot data with ESC style
-data %>% 
-  ggplot(aes(fill=condition, y=value, x=specie)) + 
-  geom_bar(position="stack", stat="identity") +
-  scale_fill_manual(values = esc_colours) +
-  facet_wrap(~condition) +
-  labs(title = "This is a title",
-       subtitle = "This is a subtitle") +
-  esc_theme(rm_y_leg = TRUE)
-```
-
-<img src="man/figures/README-example-1.png" width="100%" />
+There is also a wealth of information contained in the individual
+[function documentation](reference/index.html) that answers common usage
+questions.
