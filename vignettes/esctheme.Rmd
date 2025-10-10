@@ -81,7 +81,7 @@ p <- ggplot(inputs, aes(x = col, y = row, fill = fill_col)) +
 
 `esctheme` is the Essential Services Commission of Victoria graphing package for producing graphs that abide by our charts standards. It works by changing the appearance and functionality of charts produced using the `ggplot2` package.
 
-You should read this article to help you understand how to create charts following our chrt standards.
+You should read this article to help you understand how to create charts following our chart standards.
 
 This article provides some examples to help you figure out what elements you can change. The function documentation provides comprehensive information on the full customisation of the package.
 
@@ -109,6 +109,7 @@ All the colours are package objects that can be selected by using the appropriat
 p
 ```
 
+The `esc_palette` function provides you with `n` base colours in coloumn '0' plus three additional secondary colours.
 
 ## Graph examples
 
@@ -134,7 +135,7 @@ g <- ggplot(data_3, aes(x = year, y = value, colour = category)) +
 ```
 
 ```{r, echo=FALSE}
-#knitr::include_graphics("../man/figures/g-line.svg")
+g#knitr::include_graphics("../man/figures/g-line.svg")
 ```
 
 ### Column graph {#column}
@@ -160,7 +161,7 @@ g <- ggplot(data_3, aes(x = year, y = value, fill = category)) +
 ```
 
 ```{r, echo=FALSE}
-#knitr::include_graphics("../man/figures/g-col.svg")
+g#knitr::include_graphics("../man/figures/g-col.svg")
 ```
 
 ### Scatter graph {#scatter}
@@ -197,7 +198,7 @@ g <- ggplot(mtcars2, aes(x = wt, y = mpg, colour = gear)) +
 ```
 
 ```{r, echo=FALSE}
-#knitr::include_graphics("../man/figures/g-scatter.svg")
+g#knitr::include_graphics("../man/figures/g-scatter.svg")
 ```
 
 ### Faceted scatter graph {#facet}
@@ -218,7 +219,7 @@ g <- ggplot(mtcars2, aes(x = wt, y = mpg)) +
 ```
 
 ```{r, echo=FALSE, out.width='100%'}
-#knitr::include_graphics("../man/figures/g-facet.svg")
+g#knitr::include_graphics("../man/figures/g-facet.svg")
 ```
 
 ### Density graph {#density}
@@ -244,11 +245,16 @@ g <- ggplot(mpg, aes(x = cty, fill = factor(cyl))) +
 ```
 
 ```{r, echo=FALSE}
-#knitr::include_graphics("../man/figures/g-dens.svg")
+g#knitr::include_graphics("../man/figures/g-dens.svg")
 ```
 
 ### Horizontal bar graph {#flippedbar}
 
+There are a few reasons to work with horizontal bars, some are:
+
+- Long category labels to improve readability.
+- Multiple categories
+- Data ordering
 
 
 ```{r}
