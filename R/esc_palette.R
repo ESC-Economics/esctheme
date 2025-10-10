@@ -38,9 +38,9 @@ get_palette <- function(n){
   # Base colour codes
   base_pal <- list(
     base_blue = "#236192",
-    base_aqua = "#4986a0",
     base_orange = "#ed8b00",
     base_magenta = "#CE0058",
+    base_aqua = "#4986a0",
     base_deepgreen = "#183028",
     base_lightgreen = "#3c7964",
     base_highgreen = "#a3d168",
