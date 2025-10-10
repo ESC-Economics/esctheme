@@ -235,6 +235,11 @@ secondary colours.</p>
 <li>Multiple categories</li>
 <li>Data ordering</li>
 </ul>
+<p>Horizontal bar graphs made with <code>coord_flip()</code> require
+some changes to the <code>theme()</code> in order to look proper.
+<code>format_flip</code> wraps those changes up in a convenient function
+that should be appended at the end of the graph code, after theming
+functions such as <code><a href="../reference/esc_theme.html">esc_theme()</a></code> have been called.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">data_col</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">category</span>, y <span class="op">=</span> <span class="va">value</span>, fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_col</span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -251,6 +256,7 @@ secondary colours.</p>
 <span>  <span class="fu">ylab</span><span class="op">(</span><span class="st">"US$ billions"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/esc_theme.html">esc_theme</a></span><span class="op">(</span>rm_y_leg <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/format_flip.html">format_flip</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="esctheme_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

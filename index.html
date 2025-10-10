@@ -57,50 +57,25 @@
 </h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>The goal of esctheme is to create ggplot2 charts in the Essential Services Commission of Victoria style.</p>
-<div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
-<p>You can install the development version of esctheme from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>The <code>esctheme</code> package helps you create ggplot2 charts in the Essential Services Commission of Victoria style.</p>
+<div class="section level3">
+<h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h3>
+<p>If you haven’t already, install the <code>remotes</code> package:</p>
+<p><code>install.packages("remotes")</code></p>
+<p>Then install from GitHub:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ESC-Economics/esctheme"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ESC-Economics/esctheme"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span>, upgrade <span class="op">=</span> <span class="st">"always"</span><span class="op">)</span></span></code></pre></div>
+<p>Then load into R:</p>
+<p><code><a href="https://esc-economics.github.io/esctheme/">library(esctheme)</a></code></p>
 </div>
-<div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
-</h2>
-<p>This is a basic example which shows you how to use the theme:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://esc-economics.github.io/esctheme/">esctheme</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/r_setup.html">r_setup</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p></p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="co">## basic example code</span></span>
-<span></span>
-<span><span class="co"># create a dataset</span></span>
-<span><span class="va">esc_colours</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/esc_palette.html">esc_palette</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">specie</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"sorgho"</span> , <span class="fl">4</span><span class="op">)</span> , <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"poacee"</span> , <span class="fl">4</span><span class="op">)</span> , <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"banana"</span> , <span class="fl">4</span><span class="op">)</span> , <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"triticum"</span> , <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">condition</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Normal"</span> , <span class="st">"Stress"</span> , <span class="st">"Nitrogen"</span>, <span class="st">"Other"</span><span class="op">)</span> , <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">16</span> , <span class="op">-</span><span class="fl">5</span> , <span class="fl">15</span><span class="op">)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">specie</span>,<span class="va">condition</span>,<span class="va">value</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">specie</span>, <span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">specie</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>label_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html" class="external-link">cumsum</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">-</span><span class="fl">0.5</span><span class="op">*</span><span class="va">value</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Plot data with ESC style</span></span>
-<span><span class="va">data</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill<span class="op">=</span><span class="va">condition</span>, y<span class="op">=</span><span class="va">value</span>, x<span class="op">=</span><span class="va">specie</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_bar</span><span class="op">(</span>position<span class="op">=</span><span class="st">"stack"</span>, stat<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_fill_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="va">esc_colours</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span><span class="va">condition</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"This is a title"</span>,</span>
-<span>       subtitle <span class="op">=</span> <span class="st">"This is a subtitle"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="reference/esc_theme.html">esc_theme</a></span><span class="op">(</span>rm_y_leg <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-example-1.png" width="100%"></p>
+<div class="section level3">
+<h3 id="using-esctheme">Using esctheme<a class="anchor" aria-label="anchor" href="#using-esctheme"></a>
+</h3>
+<p>The <a href="https://esc-economics.github.io/esctheme/">package website</a> contains a lot of information on how to use esctheme.</p>
+<p>Start by reading the <a href="articles/esctheme.html">Get started</a> article.</p>
+<p>There is also a wealth of information contained in the individual <a href="reference/index.html">function documentation</a> that answers common usage questions.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
