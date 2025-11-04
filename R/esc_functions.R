@@ -48,7 +48,7 @@ summarise_by <- function(df, var, lower=.10, upper = .90, by_vars){
     dplyr::summarise(
       p_min = round(min({{ var }}, na.rm = TRUE),2),
       p_lower = round(stats::quantile({{ var }}, lower, na.rm = TRUE),2),
-      p_median = round(stats::median({{ var }}, na.rm = TRUE),0),
+      p_median = round(stats::median({{ var }}, na.rm = TRUE),2),
       p_upper = round(stats::quantile({{ var }}, upper, na.rm = TRUE),2),
       p_max = round(max({{ var }}, na.rm = TRUE),2)
     ) %>% 
