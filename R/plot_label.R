@@ -12,6 +12,10 @@
 #'   appropriate in most cases.
 #' @param hjust (optional) A numeric value from 0-1. Adjusts the alignment of
 #'   the text. 0 left-aligns (default), 0.5 centre-aligns and 1 right-aligns.
+#' @param fontface (optional) String. Options include "plain" (default), "bold",
+#'   "italic", or "bold.italic"
+#' @param lineheight (optional) Numeric. Controls height of text lines. Useful
+#'   for multiline (\n) labels. Defaults to 1.2 per geom_text default.
 #' @param geom (optional) String. Either "text" (default) or "label". "label"
 #'   adds a white box around the text which could be useful sometimes.
 #' @param angle (optional) Numeric. Rotate the labels. Defaults to 0 which is
@@ -31,6 +35,8 @@ plot_label <-
            colour = NA,
            size = 3.5,
            hjust = 0,
+           fontface = "plain",
+           lineheight = 1.2,
            geom = c("text", "label"),
            angle = 0,
            facet_name = NULL,
@@ -100,14 +106,14 @@ plot_label <-
       retval <- geom_text(
         data = plot_lab_data,
         mapping = aes(x, y, label = label),
-        colour = colour, size = size, hjust = hjust, angle = angle,
+        colour = colour, size = size, hjust = hjust, angle = angle, fontface = fontface, lineheight = lineheight,
         inherit.aes = FALSE
       )
     } else if (geom == "label") {
       retval <- geom_label(
         data = plot_lab_data,
         mapping = aes(x, y, label = label),
-        colour = colour, size = size, hjust = hjust, angle = angle,
+        colour = colour, size = size, hjust = hjust, angle = angle, fontface = fontface, lineheight = lineheight,
         inherit.aes = FALSE
       )
     }
